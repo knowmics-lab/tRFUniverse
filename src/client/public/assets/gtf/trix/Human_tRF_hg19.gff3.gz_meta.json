@@ -1,0 +1,26 @@
+{
+  "dateCreated": "2022-10-10T20:29:20.784Z",
+  "tracks": [
+    {
+      "trackId": "trna-derived_small_ncrnas-1665415720166-sessionTrack",
+      "attributesIndexed": [
+        "Name",
+        "ID"
+      ],
+      "excludedTypes": [
+        "CDS",
+        "exon"
+      ],
+      "adapterConf": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "locationType": "UriLocation",
+          "uri": "/assets/gtf/Human_tRF_hg19.gff3.gz"
+        }
+      }
+    }
+  ],
+  "assemblyNames": [
+    "hg19"
+  ]
+}

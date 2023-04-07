@@ -1,0 +1,7 @@
+.typeahead > div > input[type="text"] {
+    border-left: 0;
+}
+
+.typeahead > div > input[type="text"]:focus {
+    border-left: 0 !important;
+}

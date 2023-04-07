@@ -1,0 +1,9 @@
+.termsContent {
+}
+
+.termsContent > p {
+    text-align: justify;
+}
+.termsContent > ul > li {
+    text-align: justify;
+}

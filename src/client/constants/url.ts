@@ -1,0 +1,10 @@
+export const EXPRESSION_BY_DATASET = "https://trfuniverse.s3.eu-west-1.amazonaws.com/expressions_by_dataset.zip";
+export const TRF_ANNOTATION = "https://trfuniverse.s3.eu-west-1.amazonaws.com/trf_annotations.tsv.gz";
+export const NCI60_METADATA = "https://trfuniverse.s3.eu-west-1.amazonaws.com/NCI60_metadata.csv.gz";
+export const FLUIDS_METADATA = "https://trfuniverse.s3.eu-west-1.amazonaws.com/fluids_metadata.csv.gz";
+export const TCGA_TARGET_METADATA = "https://trfuniverse.s3.eu-west-1.amazonaws.com/TCGA_TARGET_metadata.csv.gz";
+export const TARGETING_DATASETS_METADATA = "https://trfuniverse.s3.eu-west-1.amazonaws.com/targets_metadata.csv.gz";
+export const GENE_TARGETS = "https://trfuniverse.s3.eu-west-1.amazonaws.com/gene_targets.csv.gz";
+export const BINDING_SITES = "https://trfuniverse.s3.eu-west-1.amazonaws.com/binding_sites.csv.gz";
+export const BINDING_SITE_SOURCES = "https://trfuniverse.s3.eu-west-1.amazonaws.com/binding_sites_sources.csv.gz";
+export const TARGETS_LFCS_MATRIX = "https://trfuniverse.s3.eu-west-1.amazonaws.com/targets_lfcs_matrix.csv.gz";
