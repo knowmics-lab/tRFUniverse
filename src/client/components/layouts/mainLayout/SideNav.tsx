@@ -62,7 +62,6 @@ export default function SideNav() {
                         <NavItemLink href="/analysis/differential-survival" text="Differential Survival" />
                     </NavSubMenu>
                     <NavItemLink href="/targets" icon="fa fa-bullseye" color="text-danger" text="Targets" />
-                    <NavItemLink href="/downloads" icon="fa fa-download" color="text-success" text="Downloads" />
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
