@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Card, Col, Container, Row } from "react-bootstrap";
@@ -21,44 +22,52 @@ const Home: NextPage = () => {
             </Row>
             <Card className="p-3 border-radius-xl bg-white">
                 <Card.Body>
-                    <Card.Text className="text-justify">
-                        tRFUniverse is a novel comprehensive online getaway for tRNA-derived ncRNA expression
-                        interactive analyses in human cancer. tRFUniverse combines in a single resource several of the
-                        analyses and features implemented in other pre-existing databases plus additional ones that may
-                        be helpful to researchers to investigate the involvement of these small RNA molecules in cancer
-                        biology. Moreover, tRFUniverse presents the most extensive collection of different classes of
-                        tRNA-derived ncRNAs analyzed across all the TCGA tumor types and NCI-60 cell lines and, for the
-                        first time, also across all the pediatric tumor cohorts available on TARGET and several
-                        different human biological fluids. Finally, hundreds of AGO CLASH/CLEAR/CLIP-Seq data were
-                        analyzed in order to identify the molecular interactions between tRNA-derived ncRNAs and other
-                        transcripts and reported in tRFUniverse.
-                    </Card.Text>
-                    <Card.Text className="text-justify">
-                        PLACEHOLDER TO UPDATE
-                        <br />
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus enim quis maximus
-                        lacinia. Curabitur tempor ac neque in fringilla. Quisque a sodales velit. Cras lobortis sodales
-                        lobortis. Donec quis erat dui. Nam vitae libero fringilla, finibus lectus et, finibus nunc. Sed
-                        consectetur, lectus vitae sodales lacinia, neque nulla euismod leo, at venenatis sapien tortor
-                        vel velit. Etiam faucibus pharetra tellus vitae bibendum. Curabitur mollis erat eget nisl
-                        scelerisque ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                        posuere cubilia curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras commodo,
-                        lectus ut semper volutpat, velit turpis ornare nulla, sit amet hendrerit ante purus eu sapien.
-                        Suspendisse eget justo aliquam, vestibulum magna non, faucibus sapien. Class aptent taciti
-                        sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent fringilla
-                        consequat volutpat. Donec quis venenatis sem, non aliquam metus. Nunc eu diam egestas, ornare
-                        libero vitae, sodales elit. Morbi sit amet consectetur neque, sit amet bibendum ipsum. Praesent
-                        ex orci, malesuada quis tincidunt at, mollis a massa. Suspendisse pretium nisl eget magna
-                        imperdiet, ut mattis nibh laoreet. Fusce pharetra gravida nisl ac imperdiet. Fusce efficitur
-                        velit ac sagittis finibus. In in nisl sed lectus molestie fringilla id sed lacus. Maecenas
-                        consectetur, justo eu vulputate cursus, nunc ante pretium justo, in pharetra nunc urna vel enim.
-                        Nulla convallis urna sit amet massa congue, eu vehicula augue rutrum.
-                        {/*The database reports 143 distinct tRNA-derived ncRNAs, categorized in tRNA-derived fragments (9*/}
-                        {/*tRF-5s, 45 tRF-3s), tRNA-derived small RNAs (75 tsRNAs), and tRNA 5’ leader RNAs (14 sequences*/}
-                        {/*identified). This latter group represents an additional evidence of tRNA-derived ncRNAs*/}
-                        {/*originating from the 5’ leader region of precursor tRNA, a class of tRNA-derived small RNAs*/}
-                        {/*currently poorly investigated.*/}
-                    </Card.Text>
+                    <Row>
+                        <Col className="text-justify">
+                            tRFUniverse is a novel comprehensive web app for the interactive analysis of tRNA-derived
+                            ncRNAs in human cancer. tRFUniverse presents the most extensive collection of different
+                            classes of tRNA-derived ncRNAs analyzed across all the TCGA tumor cohorts (~11,000 samples),
+                            NCI-60 cell lines, several different human biological fluids (~293 samples), and across all
+                            the pediatric tumor cohorts available on TARGET (~2,000 samples). Moreover, several AGO
+                            CLASH/CLEAR/CLIP-Seq data (82 samples) were analyzed to identify the molecular interactions
+                            between tRNA-derived ncRNAs and other transcripts.
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="text-center my-3">
+                            <Image
+                                src="/assets/img/website_content.png"
+                                alt="The content of tRFUniverse"
+                                layout="responsive"
+                                priority
+                                width={1920}
+                                height={1080}
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="text-justify">
+                            tRFUniverse combines in a single resource a set of analytical features that may be helpful
+                            to researchers in investigating the involvement of these small RNA molecules in cancer
+                            biology. Relevant examples include (i) target enrichment analyses; (ii) phenotype simulation
+                            analysis; (iii) correlation analyses; (iv) metadata-mediated correlation analyses; (v)
+                            correlated genes enrichment analyses; (vi) survival analysis; (vii) literature
+                            knowledge-graph analyses; (viii) dimensionality reduction analyses; (ix) cluster analyses;
+                            (x) differential expression analyses; and (xi) differential survival analyses.
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="text-center position-relative">
+                            <Image
+                                src="/assets/img/website_analysis.png"
+                                alt="The analysis included in tRFUniverse"
+                                layout="responsive"
+                                priority
+                                width={1920}
+                                height={1080}
+                            />
+                        </Col>
+                    </Row>
                 </Card.Body>
             </Card>
             <Card className="my-4 p-3 border-radius-xl bg-gradient-faded-light-vertical shadow-lg">
