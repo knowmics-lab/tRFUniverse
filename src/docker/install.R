@@ -7,7 +7,7 @@ check.installed <- function (requirements) {
 }
 
 install.packages("BiocManager")
-BiocManager::install(version = "3.16", ask = FALSE)
+BiocManager::install(version = "3.17", ask = FALSE)
 
 required.packages <- c(
   "Glimma", "MASS", "argparse", "edgeR", "ggfortify", "ggplot2", "ggpubr",

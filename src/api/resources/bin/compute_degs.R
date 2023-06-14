@@ -159,7 +159,7 @@ for (i in 1:length(contrasts.list)) {
                     transform.counts = "none",
                     main = titles.list[[i]]),
       file.names[i],
-      selfcontained = FALSE
+      selfcontained = TRUE
     )
   )
 }
