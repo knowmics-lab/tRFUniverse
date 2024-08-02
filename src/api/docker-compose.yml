@@ -1,10 +1,11 @@
 # For more information: https://laravel.com/docs/sail
-version: '3'
 services:
   laravel.test:
     build:
       context: ./docker/8.1
       dockerfile: Dockerfile
+      platforms:
+        - "linux/amd64"
       args:
         WWWGROUP: '${WWWGROUP}'
     image: sail-8.1/app
