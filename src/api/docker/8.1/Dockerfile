@@ -55,7 +55,7 @@ RUN apt-get update \
     && Rscript -e 'BiocManager::install(version = "3.19", ask=FALSE)' \
     && Rscript -e 'BiocManager::install(c("Glimma", "MASS", "argparse", "edgeR", "ggfortify", "ggplot2", "ggpubr", "htmlwidgets", "jsonlite", "limma", "plotly", "sfsmisc", "survival", "survminer", "qvalue"), ask=FALSE)' \
     && Rscript -e 'BiocManager::install(c("ica", "Rtsne", "uwot", "devtools", "gtools", "readr", "base64enc"), ask=FALSE)' \
-    && Rscript -e 'BiocManager::install(c("clusterProfiler", "DOSE", "ReactomePA", "org.Hs.eg.db"), ask=FALSE)' \
+    && Rscript -e 'BiocManager::install(c("clusterProfiler", "DOSE", "ReactomePA", "org.Hs.eg.db", "multiMiR"), ask=FALSE)' \
     && Rscript -e 'devtools::install_github("alaimos/morpheus.R")' \
     && apt-get -y autoremove \
     && apt-get clean \

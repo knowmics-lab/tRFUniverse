@@ -12,8 +12,9 @@ BiocManager::install(version = "3.19", ask = FALSE)
 required.packages <- c(
   "Glimma", "MASS", "argparse", "edgeR", "ggfortify", "ggplot2", "ggpubr",
   "htmlwidgets", "jsonlite", "limma", "plotly", "sfsmisc", "survival",
-  "survminer", "qvalue", "ica", "Rtsne", "uwot", "devtools", "gtools", "readr", 
-  "base64enc", "clusterProfiler", "DOSE", "ReactomePA", "org.Hs.eg.db"
+  "survminer", "qvalue", "ica", "Rtsne", "uwot", "devtools", "gtools", "readr",
+  "base64enc", "clusterProfiler", "DOSE", "ReactomePA", "org.Hs.eg.db",
+  "multiMiR"
 )
 to.install <- check.installed(required.packages)
 count <- 1

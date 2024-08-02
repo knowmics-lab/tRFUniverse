@@ -5,6 +5,7 @@ suppressPackageStartupMessages(library("dplyr"))
 suppressPackageStartupMessages(library("clusterProfiler"))
 suppressPackageStartupMessages(library("DOSE"))
 suppressPackageStartupMessages(library("org.Hs.eg.db"))
+suppressPackageStartupMessages(library("multiMiR"))
 
 source_local <- function(fname, ...){
   argv <- commandArgs(trailingOnly = FALSE)
@@ -116,10 +117,17 @@ grid.exps <- grid.exps[abs(grid.exps$correlation) > th.corr,]
 
 if (nrow(grid.exps) > 0) {
   grid.exps$genes <- sapply(strsplit(grid.exps$genes, ".", fixed = TRUE), function(x)(x[1]))
-  map             <- AnnotationDbi::select(org.Hs.eg.db, unique(grid.exps$genes), c("ENTREZID"), "ENSEMBL")
-  colnames(map)   <- c("genes", "entrez_id")
-  map             <- unique(na.omit(map))
-  grid.exps       <- grid.exps %>% inner_join(map)
+  if (type == "mirnas") {
+    mir_map <- suppressMessages(suppressWarnings(get_multimir(mirna = grid.exps$genes, table="validated",  use.tibble = TRUE, summary = TRUE)))
+    mir_summary <- mir_map@summary
+    grid.exps   <- unique(na.omit(mir_summary[,c("mature_mirna_id", "target_entrez")]))
+    colnames(grid.exps) <- c("genes", "entrez_id")
+  } else {
+    map             <- AnnotationDbi::select(org.Hs.eg.db, unique(grid.exps$genes), c("ENTREZID"), "ENSEMBL")
+    colnames(map)   <- c("genes", "entrez_id")
+    map             <- unique(na.omit(map))
+    grid.exps       <- grid.exps %>% inner_join(map)
+  }
 
   go       <- tryCatch({ enrichGO(gene          = grid.exps$entrez_id,
                                   OrgDb         = org.Hs.eg.db,
