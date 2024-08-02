@@ -76,7 +76,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && Rscript -e 'install.packages("bspm")' \
     && RHOME=$(R RHOME) \
     && echo "suppressMessages(bspm::enable())" >> ${RHOME}/etc/Rprofile.site \
-    && echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site \   
+    && echo "options(bspm.version.check=FALSE)" >> ${RHOME}/etc/Rprofile.site \
     && php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && Rscript "/opt/install.R" \
     && apt remove -y r-base-dev libcurl4-openssl-dev cmake libxml2-dev libfontconfig1-dev \
