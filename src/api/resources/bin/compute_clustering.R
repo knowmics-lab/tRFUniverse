@@ -117,6 +117,7 @@ morph          <- morpheus(
   ),
   columnAnnotations=columnAnnots,
   overrideColumnDefaults=FALSE,
+  dendrogram = "both",
   columns=lapply(
     metadata,
     function (m)(list(field=m, highlightMatchingValues=TRUE, display=list("color")))
