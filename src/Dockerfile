@@ -1,7 +1,7 @@
-FROM ubuntu:22.04 as composer_base
+FROM ubuntu:22.04 AS composer_base
 RUN mkdir -p /opt/apps/trfuniverse
 WORKDIR /opt/apps/trfuniverse
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
@@ -36,10 +36,10 @@ COPY --chown=composer ./api .
 RUN cp .env.deployment .env \ 
     && composer install --no-dev --prefer-dist
 
-FROM ubuntu:22.04 as cli
-LABEL org.opencontainers.image.source https://github.com/alaimos/tRFUniverse
+FROM ubuntu:22.04 AS cli
+LABEL org.opencontainers.image.source=https://github.com/alaimos/tRFUniverse
 WORKDIR /opt/apps/trfuniverse
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY ./docker/install.R /opt/install.R
@@ -96,8 +96,8 @@ COPY --chown=www-data --from=composer_base /opt/apps/trfuniverse /opt/apps/trfun
 COPY ./docker/php.ini /etc/php/8.1/cli/conf.d/99-trfuniverse.ini
 CMD ["php", "-a"]
 
-FROM cli as fpm_server
-LABEL org.opencontainers.image.source https://github.com/alaimos/tRFUniverse
+FROM cli AS fpm_server
+LABEL org.opencontainers.image.source=https://github.com/alaimos/tRFUniverse
 WORKDIR /opt/apps/trfuniverse
 USER root
 COPY ./docker/start-fpm.sh /usr/local/bin/start-fpm.sh
@@ -137,8 +137,8 @@ STOPSIGNAL SIGQUIT
 EXPOSE 9000
 CMD ["/usr/local/bin/start-fpm.sh"]
 
-FROM cli as web_server
-LABEL org.opencontainers.image.source https://github.com/alaimos/tRFUniverse
+FROM cli AS web_server
+LABEL org.opencontainers.image.source=https://github.com/alaimos/tRFUniverse
 WORKDIR /opt/apps/trfuniverse
 USER root
 COPY ./docker/start-nginx.sh /usr/local/bin/start-nginx.sh
@@ -161,8 +161,8 @@ EXPOSE 80/tcp
 STOPSIGNAL SIGQUIT
 CMD ["/usr/local/bin/start-nginx.sh"]
 
-FROM cli as cron
-LABEL org.opencontainers.image.source https://github.com/alaimos/tRFUniverse
+FROM cli AS cron
+LABEL org.opencontainers.image.source=https://github.com/alaimos/tRFUniverse
 WORKDIR /opt/apps/trfuniverse
 ENV NO_INIT=true
 USER root
