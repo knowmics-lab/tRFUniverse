@@ -1,10 +1,11 @@
 # For more information: https://laravel.com/docs/sail
-version: '3'
 services:
   laravel.test:
     build:
       context: ./docker/8.1
       dockerfile: Dockerfile
+      platforms:
+        - "linux/amd64"
       args:
         WWWGROUP: '${WWWGROUP}'
     image: sail-8.1/app
@@ -26,7 +27,6 @@ services:
       - mysql
       - redis
       - meilisearch
-      - selenium
   mysql:
     image: 'mysql/mysql-server:8.0'
     ports:
@@ -76,12 +76,6 @@ services:
     ports:
       - '${FORWARD_MAILHOG_PORT:-1025}:1025'
       - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
-    networks:
-      - sail
-  selenium:
-    image: 'selenium/standalone-chrome'
-    volumes:
-      - '/dev/shm:/dev/shm'
     networks:
       - sail
   soketi:

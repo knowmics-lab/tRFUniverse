@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 LABEL maintainer="Taylor Otwell"
 
 ARG WWWGROUP
-ARG NODE_VERSION=16
+ARG NODE_VERSION=18
 ARG POSTGRES_VERSION=14
 
 WORKDIR /var/www/html
@@ -52,7 +52,7 @@ RUN apt-get update \
     && apt-get install -y mysql-client \
     && apt-get install -y postgresql-client-$POSTGRES_VERSION \
     && Rscript -e 'install.packages("BiocManager")' \
-    && Rscript -e 'BiocManager::install(version = "3.16", ask=FALSE)' \
+    && Rscript -e 'BiocManager::install(version = "3.19", ask=FALSE)' \
     && Rscript -e 'BiocManager::install(c("Glimma", "MASS", "argparse", "edgeR", "ggfortify", "ggplot2", "ggpubr", "htmlwidgets", "jsonlite", "limma", "plotly", "sfsmisc", "survival", "survminer", "qvalue"), ask=FALSE)' \
     && Rscript -e 'BiocManager::install(c("ica", "Rtsne", "uwot", "devtools", "gtools", "readr", "base64enc"), ask=FALSE)' \
     && Rscript -e 'BiocManager::install(c("clusterProfiler", "DOSE", "ReactomePA", "org.Hs.eg.db"), ask=FALSE)' \
