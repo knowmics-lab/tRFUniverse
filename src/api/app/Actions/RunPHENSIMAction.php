@@ -82,6 +82,11 @@ class RunPHENSIMAction implements ActionInterface
                            ->withConditionalArguments(!empty($this->dataset), '-d', $this->dataset)
                            ->withConditionalArguments(!empty($this->dataset), '-p', $this->pvalue)
                            ->withCwd(dirname($cacheFile))
+                           ->withErrorCodesMap(
+                               [
+                                   10 => 'No targets found for the specified filters',
+                               ]
+                           )
                            ->execute();
             $phensimServerEndpoint = config('trfuniverse.phensim.url').'/simulations';
             $phensimServerResponse = Http::withToken(config('trfuniverse.phensim.token'))
