@@ -1,4 +1,4 @@
-VERSION ?= v2.0.0-alpha.2
+VERSION ?= v2.0.0-alpha.3
 REGISTRY ?= ghcr.io/alaimos/trfuniverse-
 ARCH ?= linux/amd64
 
