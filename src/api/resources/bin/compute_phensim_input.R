@@ -64,12 +64,22 @@ grid.exps <- data.frame(genes = character(0), fragment = character(0))
 if (fragment %in% names(targets)) {
   fragment_targets <- targets[[fragment]]
   if (!is.null(filter_evidence) && length(filter_evidence) > 0) {
-    fragment_targets <- fragment_targets[sapply(fragment_targets, function(x)(any(filter_evidence %in% unlist(strsplit(x$evidences, ",", fixed = TRUE)))))]
+    fragment_filter <- sapply(fragment_targets, function(x)(any(filter_evidence %in% unlist(strsplit(x$evidences, ",", fixed = TRUE)))))
+    if (length(which(fragment_filter)) == 0) {
+        warning("No targets found for the specified filters")
+        quit(save = "no", status = 10)
+    }
+    fragment_targets <- fragment_targets[fragment_filter]
   }
   if (!is.null(filter_dataset) && length(filter_dataset) > 0 && nchar(filter_dataset) > 0) {
     convert.to.names <- function (x) (gsub("[[:punct:]\\s]+", "_", x, perl = TRUE))
-    filter_dataset <- convert.to.names(filter_dataset)
-    fragment_targets <- fragment_targets[sapply(fragment_targets, function(x) (any(x$p[startsWith(names(x$p), filter_dataset)] < filter_p)))]
+    filter_dataset   <- convert.to.names(filter_dataset)
+    fragment_filter  <- sapply(fragment_targets, function(x) (any(x$p[startsWith(names(x$p), filter_dataset)] < filter_p)))
+    if (length(which(fragment_filter)) == 0) {
+        warning("No targets found for the specified filters")
+        quit(save = "no", status = 10)
+    }
+    fragment_targets <- fragment_targets[fragment_filter]
   }
   grid.exps <- data.frame(genes = names(fragment_targets), fragment = fragment, stringsAsFactors = FALSE)
 }

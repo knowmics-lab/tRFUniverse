@@ -82,12 +82,12 @@ function ContrastForm({ contrast, index, dispatch, metadataOptions }: ContrastFo
                             isMulti
                             options={metadataOptions}
                             value={metadataOptions.filter((m) => contrast.case.includes(m.value))}
-                            onChange={(m) =>
+                            onChange={(m: any) =>
                                 dispatch({
                                     type: "change_contrast",
                                     payload: {
                                         index,
-                                        filter: { case: m?.map((m) => m.value) },
+                                        filter: { case: m?.map((m: any) => m.value) },
                                     },
                                 })
                             }
@@ -100,12 +100,12 @@ function ContrastForm({ contrast, index, dispatch, metadataOptions }: ContrastFo
                             isMulti
                             options={metadataOptions}
                             value={metadataOptions.filter((m) => contrast.control.includes(m.value))}
-                            onChange={(m) =>
+                            onChange={(m: any) =>
                                 dispatch({
                                     type: "change_contrast",
                                     payload: {
                                         index,
-                                        filter: { control: m?.map((m) => m.value) },
+                                        filter: { control: m?.map((m: any) => m.value) },
                                     },
                                 })
                             }

@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     experimental: {
-        images: { allowFutureImage: true },
+        // images: { allowFutureImage: true },
         largePageDataBytes: 256 * 1024,
     },
     output: "standalone",
